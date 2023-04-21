@@ -58,9 +58,9 @@ for idx, img in enumerate(batch[0][:4]):
     ax[idx].title.set_text(batch[1][idx])
 ```
 #### Como vemos en el `batch[1]` tenemos las etiquetas de cada batch de datos(32 imágenes por cada batch).
-## **Escalamos los datos**
-
 ![Image](src/Images/Imagen1.PNG)
+
+## **Escalamos los datos**
 ```py
 data = data.map(lambda x,y: (x/255, y))
 scaled_iterator = data.as_numpy_iterator()
