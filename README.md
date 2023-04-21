@@ -68,12 +68,13 @@ batch = scaled_iterator.next()
 ```
 
 ## **Dividimos entre train y test**
+```py
 train_size = int(len(data)*.7)
 val_size = int(len(data)*.2)+1
 test_size = int(len(data)*.1)+1
 train = data.take(train_size)
 val = data.skip(train_size).take(val_size)
-
+```
 ## **Creamos el modelo de Deep Learning**
 
 #### Tenemos un modelo con una primera capa en la que se le aplica a nuestras imágenes 32 filtros sobre 3x3 píxeles cada 1 pixel, una segunda capa en la que aplicamos 128 filtros sobre 2x2 pixeles cada 1 pixel, luego aplanamos los datos para meterlo en la red neuronal final. Las Pooling layer que usamos son sobre 2x2 pixeles. La capa de salida está compuesto por un espacio de salida de 3 ya que tenemos 3 etiquetas en nuestros datos. He usado como función de activación Relu menos en la capa de salida en la que he usado la función sigmoide. Como optimizador he usado Adam, como función de pérdida "sparse categorical crosssentropy" y como métrica "accuracy".
